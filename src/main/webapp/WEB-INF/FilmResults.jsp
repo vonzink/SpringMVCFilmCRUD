@@ -10,16 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Welcome to Film Site</h1>
+	<h1>${film.title }</h1>
+
 	
-	<!-- example form from  -->
-	<form action="getFilm.do" method="POST">
-      <label for="filmId">filmId</label>
-      <input type="text" name="filmId">
-      <button>Submit</button>
-      <br>
-     
-    </form> 
+	
 	
 	
 </body>

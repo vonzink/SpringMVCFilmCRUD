@@ -217,45 +217,38 @@ public Film addFilm(Film film) {
     }
     return null; 
 }
-//
-//@Override
-//public Film updatingFilm(Film film) {
-//	 String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?"
-//	 		+ "WHERE id = ?";
-//			try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
-//					PreparedStatement pst = conn.prepareStatement(sql)) {	 
-//				
-//				pst.setString(1, film.getTitle());
-//		        pst.setString(2, film.getDescription());
-//		        pst.setInt(3, film.getYear());
-//		        pst.setInt(4, film.getLanguageId()); 
-//		        pst.setInt(5, film.getRentalDuration()); 
-//		        pst.setDouble(6, film.getRentalRate());
-//		        pst.setInt(7, film.getLength());
-//		        pst.setDouble(8, film.getReplacementCost());
-//		        pst.setString(9, film.getRating()); 
-//				 
-//			 return film;
-//			 
-//		    } catch (SQLException e) { e.printStackTrace(); }
-//		    return film;
-//		  }
-//
-//@Override
-//public void deleteFilm(Film fimToDelete) {
-//	// TODO Auto-generated method stub
-//	
-//}
 
 @Override
-public Film updatingFilm(Film updatingFilm) {
-	// TODO Auto-generated method stub
-	return null;
-}
+public Film updatingFilm(Film film) {
+	 String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?"
+	 		+ "WHERE id = ?";
+			try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
+					PreparedStatement pst = conn.prepareStatement(sql)) {	 
+				
+				pst.setString(1, film.getTitle());
+		        pst.setString(2, film.getDescription());
+		        pst.setInt(3, film.getYear());
+		        pst.setInt(4, film.getLanguageId()); 
+		        pst.setInt(5, film.getRentalDuration()); 
+		        pst.setDouble(6, film.getRentalRate());
+		        pst.setInt(7, film.getLength());
+		        pst.setDouble(8, film.getReplacementCost());
+		        pst.setString(9, film.getRating()); 
+				 
+			 return film;
+			 
+		    } catch (SQLException e) { e.printStackTrace(); }
+		    return film;
+		  }
 
 @Override
 public void deleteFilm(Film fimToDelete) {
 	// TODO Auto-generated method stub
+	
+
+
+
+
 	
 }
 

@@ -14,33 +14,33 @@
 	
 	<!-- example form from  -->
 	<form action="getFilm.do" method="POST">
-      <label for="filmId">Film Id</label>
+      <label for="filmId">Film Id</label><br>
       <input type="text" name="filmId">
-      <button>Submit</button>
+      <button>Lookup</button>
       <br>
      
     </form> 
-	
+	<h1>Add New Film</h1>
 	<form action="addFilm.do" method="POST">
       <label for="title">Add Title</label>
-      <input type="text" name="title">
+      <input type="text" name="title"><br>
       <label for="description">Add Description</label>
-      <input type="text" name="description">
+      <input type="text" name="description"><br>
       <label for="year">Add Year</label>
-      <input type="number" name="year">
+      <input type="number" name="year"><br>
       <label for="rating">Add Rating</label>
-      <input type="text" name="rating">
+      <input type="text" name="rating"><br>
       <label for="languageId">Add Language</label>
-      <input type="number" name="languageId">
+      <input type="number" name="languageId"><br>
       <label for="rentalRate">Add Rental Rate</label>
-      <input type="number" name="rentalRate">
+      <input type="number" name="rentalRate"><br>
       <label for="rentalDuration">Add Rental Duration</label>
-      <input type="number" name="rentalDuration">
+      <input type="number" name="rentalDuration"><br>
       <label for="replacementCost">Add Replacement Cost</label>
-      <input type="number" name="replacementCost">
+      <input type="number" name="replacementCost"><br>
       <label for="length">Add Film Length</label>
-      <input type="number" name="length">
-      <button>Submit</button>
+      <input type="number" name="length"><br>
+      <button>Add Film</button>
       <br>
       
      

@@ -7,34 +7,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Film Lookup Results</title>
 </head>
 <body>
-	<h1>${film.title }</h1>
+		<h1>${film.title }</h1>
 
       <form action="updatingFilm.do" method="POST">
-      <label for="title">Add Title</label>
+		<h2>Edit Film Info</h2>
       <input type="text" name="title" value ="${film.title }">
-      <label for="description">Add Description</label>
+      <label for="title">Edit Title</label><br>
       <input type="text" name="description" value ="${film.description }">
-      <label for="year">Add Year</label>
+      <label for="description">Edit Description</label><br>
       <input type="number" name="year" value ="${film.year }">
-      <label for="rating">Add Rating</label>
+      <label for="year">Edit Year</label><br>
       <input type="text" name="rating" value ="${film.rating }">
-      <label for="languageId">Add Language</label>
+      <label for="rating">Edit Rating</label><br>
       <input type="number" name="languageId" value ="${film.languageId }">
-      <label for="rentalRate">Add Rental Rate</label>
+      <label for="languageId">Edit Language</label><br>
       <input type="number" name="rentalRate" value ="${film.rentalRate }">
-      <label for="rentalDuration">Add Rental Duration</label>
+      <label for="rentalRate">Edit Rental Rate</label><br>
       <input type="number" name="rentalDuration" value ="${film.rentalDuration }">
-      <label for="replacementCost">Add Replacement Cost</label>
+      <label for="rentalDuration">Edit Rental Duration</label><br>
       <input type="number" name="replacementCost" value ="${film.replacementCost }">
-      <label for="length">Add Film Length</label>
+      <label for="replacementCost">Edit Replacement Cost</label><br>
       <input type="number" name="length" value ="${film.length }">
-      <button>Submit</button>
+      <label for="length">Edit Film Length</label><br>
+      <input type="number" name="filmId" value ="${film.id }">
+      <label for="filmId">Film Id</label><br>
+      <button>Update</button>
       <br>	
+	<br>
 	
-	
+	 <form action="delete.do" method="POST">
+		<h2>DELETE</h2>
+		<button>DELETE</button>
+		
 	
 </body>
 </html>

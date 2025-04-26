@@ -25,4 +25,10 @@ public class FilmController {
 		model.addAttribute("film", film);
 		return "FilmResults"; 
 	}
+	@RequestMapping(path= { "addFilm.do" })
+	private String Film(Model model,  Film film) {
+		Film makeFilm = filmDao.addFilm(film);
+		model.addAttribute("film", makeFilm);
+		return "FilmResults"; 
+	}
 }

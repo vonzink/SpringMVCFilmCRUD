@@ -37,6 +37,6 @@ public class FilmController {
 	private String updatingFilm(Model model, Film film, @RequestParam("filmId") int filmId) {
 		Film updateFilm = filmDao.updatingFilm(film);
 		model.addAttribute("film", updateFilm);
-		return "FilmResults"; 
+		return "redirect:getFilm.do?filmId=" + filmId; 
 }
 }

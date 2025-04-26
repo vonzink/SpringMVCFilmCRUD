@@ -220,8 +220,9 @@ public Film addFilm(Film film) {
 
 @Override
 public Film updatingFilm(Film film) {
-	 String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ? id = ?"
-	 		+ "WHERE id = ?";
+	 String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?" + 
+			 	", rental_rate = ?, length = ?, replacement_cost = ?, rating = ?"
+	 		+ " WHERE id = ?";
 			try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
 					PreparedStatement pst = conn.prepareStatement(sql)) {	 
 				
@@ -235,7 +236,7 @@ public Film updatingFilm(Film film) {
 		        pst.setDouble(8, film.getReplacementCost());
 		        pst.setString(9, film.getRating()); 
 		        pst.setInt(10, film.getId());
-				 
+				pst.executeUpdate();
 			 return film;
 			 
 		    } catch (SQLException e) { e.printStackTrace(); }

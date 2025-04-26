@@ -14,6 +14,7 @@
 
       <form action="updatingFilm.do" method="POST">
 		<h2>Edit Film Info</h2>
+		<input type="hidden" name="id" value ="${film.id }">
       <input type="text" name="title" value ="${film.title }">
       <label for="title">Edit Title</label><br>
       <input type="text" name="description" value ="${film.description }">

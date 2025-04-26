@@ -26,9 +26,16 @@ public class FilmController {
 		return "FilmResults"; 
 	}
 	@RequestMapping(path= { "addFilm.do" })
-	private String Film(Model model,  Film film) {
+	private String addFilm(Model model,  Film film) {
 		Film makeFilm = filmDao.addFilm(film);
 		model.addAttribute("film", makeFilm);
 		return "FilmResults"; 
 	}
+	
+	@RequestMapping(path= { "updatingFilm.do" })
+	private String updatingFilm(Model model, Film film, @RequestParam("filmId") int filmId) {
+		Film updateFilm = filmDao.updatingFilm(film);
+		model.addAttribute("film", updateFilm);
+		return "FilmResults"; 
+}
 }

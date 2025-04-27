@@ -219,7 +219,7 @@ public Film addFilm(Film film) {
 }
 
 @Override
-public Film updatingFilm(Film film) {
+public Film updateFilm(Film film) {
 	 String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?" + 
 			 	", rental_rate = ?, length = ?, replacement_cost = ?, rating = ?"
 	 		+ " WHERE id = ?";
@@ -244,15 +244,19 @@ public Film updatingFilm(Film film) {
 		  }
 
 @Override
-public void deleteFilm(Film fimToDelete) {
-	// TODO Auto-generated method stub
+public void deleteFilm(Film film) {
+		 String sql = "DELETE FROM film WHERE id = ?";
+				try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
+						PreparedStatement pst = conn.prepareStatement(sql)) {	 
+				
+						pst.setInt(1, film.getId());
+						pst.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					}
+		}
+
 	
 
-
-
-
-	
-}
-
-	
-}

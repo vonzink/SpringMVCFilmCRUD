@@ -13,8 +13,8 @@ public interface FilmDAO {
   List<Film> findFilmByKeyword(String keyword);
   String findLanguageById(int languageId);
   Film addFilm(Film newFilm); 
-  Film updatingFilm(Film updatingFilm);
-  void deleteFilm(Film fimToDelete);
+  Film updateFilm(Film updateFilm);
+  void deleteFilm(Film filmToDelete);
   
 		}
   

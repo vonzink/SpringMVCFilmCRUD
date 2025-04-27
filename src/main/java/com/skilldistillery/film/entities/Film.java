@@ -17,6 +17,8 @@ public class Film {
 	private String rating; 
 	private String specialFeatures;
 	private List<Actor> actors;
+	private List<Category> categories;
+	
 
 	public Film(List<Actor> actors) {
 		super();
@@ -151,6 +153,15 @@ public class Film {
 		this.language = language;
 	}
 
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
 	@Override
 	public String toString() {
 		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", year=" + year
@@ -158,7 +169,7 @@ public class Film {
 				+ ", rentalRate=" + rentalRate + ", length=" + length + ", replacementCost=" + replacementCost
 				+ ", rating=" + rating + ", specialFeatures=" + specialFeatures + ", actors=" + actors + "]";
 	}
+
+		
+	}
 	
-
-
-}

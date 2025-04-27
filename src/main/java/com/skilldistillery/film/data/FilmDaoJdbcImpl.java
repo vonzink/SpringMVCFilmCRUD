@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.skilldistillery.film.entities.Actor;
+import com.skilldistillery.film.entities.Category;
 import com.skilldistillery.film.entities.Film;
 
 @Component
@@ -58,7 +59,8 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 				List<Actor> actors = findActorsByFilmId(filmId);
 				film.setActors(actors);
-
+				List<Category> categories = findCategoryId(film.getId());
+		        film.setCategories(categories);  
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -152,6 +154,8 @@ public List<Film> findFilmByKeyword(String keyword) {
 		    	
 		    	List<Actor> actors = findActorsByFilmId(film.getId()); 
 	            film.setActors(actors);
+	            List<Category> categories = findCategoryId(film.getId());
+	            film.setCategories(categories);  
 
 	            films.add(film);
 	
@@ -186,6 +190,37 @@ public List<Film> findFilmByKeyword(String keyword) {
 		
 		return language;
 	}
+
+@Override
+public List<Category> findCategoryId(int filmId) {
+	List<Category> categories = new ArrayList<>();
+	String sql = "SELECT category.id, category.name " +
+            		"FROM film " +
+            		"JOIN film_category ON film.id = film_category.film_id " +
+            		"JOIN category ON film_category.category_id = category.id " +
+            		"WHERE film.id = ?";
+
+	try {
+		Connection conn = DriverManager.getConnection(URL, USER, PASS);
+		PreparedStatement stmt = conn.prepareStatement(sql);
+
+		stmt.setInt(1, filmId);
+		ResultSet rs = stmt.executeQuery();
+		
+		while (rs.next()) {
+		Category category = new Category (
+			rs.getInt("id"),
+			rs.getString("name")); 
+		categories.add(category);
+		}
+		rs.close();
+		stmt.close();
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return categories;
+}
 
 //
 @Override
@@ -255,7 +290,7 @@ public void deleteFilm(Film film) {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-					}
+				}
 		}
 
 	

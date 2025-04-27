@@ -56,7 +56,7 @@ public class FilmController {
 		 if (updateFilm != null) {
 			 model.addAttribute("message", " Film updated successfully! ");;
 		    } else {
-		        model.addAttribute("message", "Failed to update film with ID: " + filmId);
+		        model.addAttribute("message", " Failed to update film with ID: " + filmId);
 		        return "FilmResults";
 		    }
 		return "FilmResults";
@@ -71,9 +71,9 @@ public class FilmController {
 		Film deleteFilm = filmDao.findFilmById(filmId);
 		  if (deleteFilm != null ) {
 		        filmDao.deleteFilm(deleteFilm);
-		        model.addAttribute("message", "Film with ID " + filmId + " was deleted successfully. ");
+		        model.addAttribute("message", " Film with ID " + filmId + " was deleted successfully. ");
 		    } else {
-		        model.addAttribute("message", "Film with ID " + filmId + " not found. Nothing was deleted. ");
+		        model.addAttribute("message", " Film with ID " + filmId + " not found. Nothing was deleted. ");
 		    }
 		return "redirect:home.do";
 	}
@@ -81,9 +81,9 @@ public class FilmController {
 	private String findFilmByKeyword(Model model, @RequestParam("keyword") String keyword) {
 	    List<Film> films = filmDao.findFilmByKeyword(keyword);
 	    if (films != null && !films.isEmpty()) {
-	    	model.addAttribute("message", "Film" + keyword + " was found. ");
+	    	model.addAttribute("message", " Film " + keyword + " was found. ");
 	    } else {
-	        model.addAttribute("message", "Film " + keyword + " not found. Nothing was deleted. ");
+	        model.addAttribute("message", " Film " + keyword + " not found. Nothing was deleted. ");
 	    }
 	    model.addAttribute("films", films);
 	    return "KeywordResults";
